@@ -1,0 +1,44 @@
+.user-form-area .user-content {
+  padding-left: 30px;
+  max-width: 600px;
+  margin-left: 368px;
+  margin-right: auto;
+}
+.user-form-area .user-content .top .form-group {
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.user-form-area .user-content .top h2 {
+  font-size: 35px;
+  color: #7b8bc3 ;
+  font-weight: 600;
+  font-family: Poppins,sans-serif;
+}
+.user-form-area .user-content .top .form-group .form-control {
+  width: 100%;
+  height: 38px;
+  padding-left: 20px;
+  font-size: 14px;
+  border-radius: 5px;
+  transition: all .5s ease;
+  background-color: #f5f5f5;
+  border: 1px solid #f5f5f5;
+}
+
+.user-form-area .user-content .top .btn {
+  color: #fff;
+  background: linear-gradient(
+    90deg
+    ,#B6CDE8,#556C96 63%);
+  border-radius: 5px;
+  border: 0;
+  transition: all .5s ease;
+  padding: 13px 35px;
+  width: 100%;
+  display: block;
+  font-weight: 500;
+}
+.error-message{
+  color: red;
+}

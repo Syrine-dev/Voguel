@@ -1,0 +1,137 @@
+
+
+
+
+
+
+
+
+
+
+
+<div class="user-form-area">
+  <div class="container-fluid p-0">
+    <div class="align-items-center">
+
+      <div class="register1">
+        <div class="user-content">
+          <div class="top"><h2>Register</h2>
+            <form (ngSubmit)="onSubmit()" #userForm="ngForm" [formGroup]="registreForm">
+
+              <div class="form-group" ><input type="text" placeholder="FirstName"
+                                             class="form-control"
+                                             id="nom" [(ngModel)]="user.nom"
+                                             name="nom" required formControlName="nom">
+              </div>
+              <div class="error-messages">
+                <ng-container *ngFor="let error of error_messages.nom">
+                  <!--<div class="error-messages">
+                    <div class="error-message" *ngIf="checkUserExists(user.nom)">
+                      existe
+                    </div>
+
+                  </div>-->
+                  <div class="error-message"
+                       *ngIf="registreForm.get('nom').hasError(error.type) &&
+                       (registreForm.get('nom').dirty || registreForm.get('nom').touched)">
+                    {{ error.message }}
+                  </div>
+                </ng-container>
+              </div>
+
+              <div class="form-group"><input type="text" placeholder="LastName"
+                                             class="form-control"
+                                             id="prenom" [(ngModel)]="user.prenom"
+                                             name="prenom" required formControlName="prenom">
+              </div>
+              <div class="error-messages">
+                <ng-container *ngFor="let error of error_messages.nom">
+                  <div class="error-message"
+                       *ngIf="registreForm.get('prenom').hasError(error.type) &&
+                       (registreForm.get('prenom').dirty || registreForm.get('prenom').touched)">
+                    {{ error.message }}
+                  </div>
+                </ng-container>
+              </div>
+              <div class="form-group"><input placeholder="Email"
+                                             type="text" [(ngModel)]="user.mail"
+                                             class="form-control"
+                                             id="mail"
+                                             name="mail"
+                                             required formControlName="mail">
+              </div>
+              <div class="error-messages">
+                <ng-container *ngFor="let error of error_messages.mail">
+                  <div class="error-message" *ngIf="registreForm.get('mail').hasError(error.type) &&
+                  (registreForm.get('mail').dirty || registreForm.get('mail').touched)">
+                    {{ error.message }}
+                  </div>
+                  <div class="error-messages">
+                    <div class="error-message" *ngIf="checkUserExists(user.mail)">
+                      e-mail existe
+                    </div>
+                  </div>
+                </ng-container>
+              </div>
+
+              <div class="form-group"><input type="text" placeholder="Phone"
+                                             [(ngModel)]="user.tel"
+                                             [ngModelOptions]="{standalone: true}"
+                                             class="form-control"
+                                             ></div>
+
+              <div class="form-group"><select [(ngModel)]="user.type"
+                                              [ngModelOptions]="{standalone: true}"
+                                              class="form-control"
+                                              optionLabel="Nature">
+                <option value="Type1">Type 1 : max retrait 500$</option>
+                <option value="Type2">Type 2 : max retrait 1000$</option>
+                <option value="Type3">Type 3 : max retrait 1500$</option>
+
+              </select>
+               </div>
+
+
+              <div class="form-group"><input type="password" placeholder="Password"
+                                             [(ngModel)]="user.motDePasse"
+                                             class="form-control"
+                                             id="motDePasse"
+                                             name="motDePasse"
+                                             required formControlName="motDePasse"></div>
+              <div class="error-messages">
+                <ng-container *ngFor="let error of error_messages.motDePasse">
+                  <div class="error-message"
+                       *ngIf="registreForm.get('motDePasse').hasError(error.type) &&
+                       (registreForm.get('motDePasse').dirty || registreForm.get('motDePasse').touched)">
+                    {{ error.message }}
+                  </div>
+                </ng-container>
+              </div>
+
+              <div class="form-group"><input type="password" formControlName="confirmotDePasse"
+                                             placeholder="Confirm Password" class="form-control"
+                                             id="confirmotDePasse"
+                                             name="confirmotDePasse"></div>
+              <div class="error-messages">
+                <ng-container *ngFor="let error of error_messages.confirmotDePasse">
+                  <div class="error-message"
+                       *ngIf="registreForm.get('confirmotDePasse').hasError(error.type) &&
+                        (registreForm.get('confirmotDePasse').dirty || registreForm.get('confirmotDePasse').touched)">
+                    {{ error.message }}
+                  </div>
+                </ng-container>
+              </div>
+               <pre>
+                   Form Error - {{ registreForm.errors | json }}
+                 </pre>
+
+              <button class="btn" type="submit">Register Here</button>
+              <!--              <button class="btn" type="submit" [disabled]="!registreForm.valid ">Register Here</button>-->
+            </form>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
